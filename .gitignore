@@ -3,9 +3,9 @@
 *
 
 # You can whitelist files/folders with !, these will not be ignored.
-!*.yaml
-!.gitignore
-!*.md
+!automations.yaml
+!configuration.yaml
+!customize.yaml
 
 # Ignore folders.
 .storage
