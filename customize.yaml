@@ -1,3 +1,4 @@
+### Lights ###
 light.laundry:
   friendly_name: "Vaskerom"
   icon: mdi:ceiling-light
@@ -11,5 +12,15 @@ light.under_stairs_lamp:
   icon: mdi:desk-lamp
 light.wc:
   icon: mdi:ceiling-light
+
+### Switches ###
 switch.chili:
   icon: mdi:desk-lamp
+
+### Motion detectors ###
+sensor.kott_motion:
+  friendly_name: "Kott"
+sensor.technical_motion:
+  friendly_name: "Teknisk rom"
+sensor.laundry_motion:
+  friendly_name: "Vaskerom"

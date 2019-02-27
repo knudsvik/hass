@@ -31,14 +31,14 @@ discovery:
   #  - homekit
 
 sensor:
-  # Weather prediction
   - platform: yr
     monitored_conditions:
       - temperature
       - symbol
   - platform: entur_public_transport
     stop_ids:
-      - 'NSR:StopPlace:28201'
+      - !secret buss1
+      - !secret buss2
 
 hue:
   bridges:
