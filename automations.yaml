@@ -1,0 +1,15 @@
+### CHILI LYS ###
+- alias: 'Chili lys på'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.chili
+- alias: 'Chili lys av'
+  trigger:
+    - platform: time
+      at: '21:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.chili

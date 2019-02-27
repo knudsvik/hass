@@ -1,0 +1,15 @@
+light.laundry:
+  friendly_name: "Vaskerom"
+  icon: mdi:ceiling-light
+light.pia_under_bed:
+  icon: mdi:led-strip
+light.technical_ceiling:
+  icon: mdi:ceiling-light
+light.master_thorjan:
+  icon: mdi:led-strip
+light.under_stairs_lamp:
+  icon: mdi:desk-lamp
+light.wc:
+  icon: mdi:ceiling-light
+switch.chili:
+  icon: mdi:desk-lamp

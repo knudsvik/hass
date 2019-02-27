@@ -1,0 +1,77 @@
+homeassistant:
+  name: !secret name
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 10
+  unit_system: metric
+  time_zone: !secret tz
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Show the introduction message on startup.
+introduction:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  base_url: !secret url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+discovery:
+  ignore:
+    #- apple_tv
+    #- denonavr
+    - harmony
+    - philips_hue
+    #- plex_mediaserver
+    - samsung_tv
+  #enable:
+  #  - homekit
+
+sensor:
+  # Weather prediction
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+  - platform: entur_public_transport
+    stop_ids:
+      - 'NSR:StopPlace:28201'
+
+hue:
+  bridges:
+    - host: !secret hue_ip
+
+media_player:
+  - platform: samsungtv
+    host: !secret samsungtv_ip
+    mac: !secret samsungtv_mac
+    port: 8001
+  - platform: lg_netcast
+    host: !secret lg_ip
+    access_token: !secret lg_access_token
+
+tibber:
+  access_token: !secret tibber_token
+
+# Light groups
+light:
+  - platform: group
+    name: laundry
+    entities:
+      - light.laundry_ceiling3
+      - light.laundry_ceiling4
+
+switch:
+  - platform: tplink
+    host: !secret tplink_ip
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
