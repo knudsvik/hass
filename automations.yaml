@@ -1,3 +1,13 @@
+### SYSTEM ###
+- alias: "Startup Notification"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: notify.ios_thorjan_x
+      data:
+        message: "Hass restarted"
+
 ### CHILI LYS ###
 - alias: 'Chili lys på'
   trigger:
