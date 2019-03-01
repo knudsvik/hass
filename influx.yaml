@@ -1,0 +1,13 @@
+host: a0d7b954-influxdb
+port: 8086
+database: hassdb
+username: !secret influx_user
+password: !secret influx_pass
+max_retries: 3
+default_measurement: state
+include:
+  entities:
+    - sensor.yr_temperature
+    - sensor.kott_motion
+    - sensor.laundry_motion
+    - sensor.technical_motion
