@@ -1,4 +1,7 @@
-### SYSTEM ###
+###############################
+###       SYSTEM            ###
+###############################
+
 - alias: "Startup Notification"
   trigger:
     - platform: homeassistant
@@ -8,7 +11,10 @@
       data:
         message: "Restarted"
 
-### CHILI LYS ###
+###############################
+###       LIGHTS            ###
+###############################
+
 - alias: 'Chili lys'
   trigger:
     platform: time
@@ -19,3 +25,18 @@
     - delay: 14:00:00
     - service: switch.turn_off
       entity_id: switch.chili
+- alias: 'Pia kveld'
+  trigger:
+    platform: time
+    at: '18:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        brightness_pct: 60
+        color_name: hotpink
+    - delay: 01:30:00
+    - service: light.turn_off
+      data:
+        entity_id: light.pia_under_bed
+        transition: 1800
