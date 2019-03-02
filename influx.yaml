@@ -11,3 +11,4 @@ include:
     - sensor.kott_motion
     - sensor.laundry_motion
     - sensor.technical_motion
+    - sensor.voltage_chili

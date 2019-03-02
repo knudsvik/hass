@@ -47,6 +47,7 @@ sensor:
     monitored_conditions:
       - temperature
       - symbol
+      - windSpeed
   - platform: entur_public_transport
     stop_ids:
       - !secret buss1
@@ -62,8 +63,14 @@ sensor:
     sensors:
       entur_austbo_rute:
         friendly_name: "Rute"
-        #unit_of_measurement: 'degrees'
         value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'route') }}"
+  - platform: template
+    sensors:
+      voltage_chili:
+        friendly_name: "Spenning"
+        unit_of_measurement: 'V'
+        icon_template: mdi:flash
+        value_template: "{{ state_attr('switch.chili', 'voltage') }}"
 
 air_quality:
   - platform: norway_air
