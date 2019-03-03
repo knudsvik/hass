@@ -48,6 +48,13 @@ sensor:
       - temperature
       - symbol
       - windSpeed
+  - platform: darksky
+    api_key: !secret dark_sky_token
+    language: nb
+    forecast:
+      - 0
+    monitored_conditions:
+      - summary
   - platform: entur_public_transport
     stop_ids:
       - !secret buss1
@@ -91,6 +98,10 @@ sensor:
 
 air_quality:
   - platform: norway_air
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_token
 
 hue:
   bridges:
