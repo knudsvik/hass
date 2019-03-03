@@ -64,6 +64,13 @@ sensor:
       entur_austbo_rute:
         friendly_name: "Rute"
         value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'route') }}"
+        icon_template: mdi:bus
+  - platform: template
+    sensors:
+      entur_ringnotveien_rute:
+        friendly_name: "Rute"
+        value_template: "{{ state_attr('sensor.entur_ringnotveien_platform_44778', 'route') }}"
+        icon_template: mdi:bus
   - platform: template
     sensors:
       voltage_chili:
@@ -71,6 +78,16 @@ sensor:
         unit_of_measurement: 'V'
         icon_template: mdi:flash
         value_template: "{{ state_attr('switch.chili', 'voltage') }}"
+  - platform: rest
+    resource: !secret hue_wc_temp
+    value_template: '{{ value_json.state.temperature | float / 100 }}'
+    unit_of_measurement: °C
+    name: 'WC Temperature'
+  - platform: rest
+    resource: !secret hue_wc_lux
+    value_template: '{{ value_json.state.lightlevel }}'
+    unit_of_measurement: Lux
+    name: 'WC Lux'
 
 air_quality:
   - platform: norway_air
