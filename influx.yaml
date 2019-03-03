@@ -12,3 +12,5 @@ include:
     - sensor.laundry_motion
     - sensor.technical_motion
     - sensor.voltage_chili
+    - sensor.wc_temperature
+    - sensor.wc_lux
