@@ -17,10 +17,19 @@ light.wc:
 switch.chili:
   icon: mdi:desk-lamp
 
-### Motion detectors ###
+#########################
+###       Sensors     ###
+#########################
+
 sensor.kott_motion:
   friendly_name: "Kott"
 sensor.technical_motion:
   friendly_name: "Teknisk rom"
 sensor.laundry_motion:
   friendly_name: "Vaskerom"
+sensor.entur_austbo_vest_platform_48514:
+  friendly_name: 'Austbø'
+  icon: mdi:clock-outline
+sensor.entur_ringnotveien_platform_44778:
+  friendly_name: 'Ringnotveien'
+  icon: mdi:clock-outline
