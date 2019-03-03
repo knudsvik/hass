@@ -62,3 +62,10 @@
       data:
         entity_id: light.pia_under_bed
         transition: 1800
+- alias: 'Thorjan morgen'
+  trigger:
+    platform: time
+    at: '08:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.master_thorjan
