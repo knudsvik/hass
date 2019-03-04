@@ -10,9 +10,6 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Show the introduction message on startup.
-introduction:
-
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   base_url: !secret url
@@ -95,6 +92,7 @@ sensor:
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'WC Lux'
+  - platform: pi_hole
 
 air_quality:
   - platform: norway_air
