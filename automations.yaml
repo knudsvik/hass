@@ -69,3 +69,15 @@
   action:
     - service: light.turn_off
       entity_id: light.master_thorjan
+- alias: 'Helg'
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: time
+    weekday:
+      - fri
+      - sat
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bookshelf
