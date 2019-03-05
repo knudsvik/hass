@@ -1,4 +1,7 @@
-### Lights ###
+#########################
+###       Lights      ###
+#########################
+
 light.laundry:
   friendly_name: "Vaskerom"
   icon: mdi:ceiling-light
@@ -13,9 +16,16 @@ light.under_stairs_lamp:
 light.wc:
   icon: mdi:ceiling-light
 
-### Switches ###
+#########################
+###      Switches     ###
+#########################
+
+switch.bookshelf:
+  icon: mdi:glass-cocktail
 switch.chili:
   icon: mdi:desk-lamp
+switch.colour:
+  icon: mdi:album
 
 #########################
 ###       Sensors     ###
@@ -33,3 +43,5 @@ sensor.entur_austbo_vest_platform_48514:
 sensor.entur_ringnotveien_platform_44778:
   friendly_name: 'Ringnotveien'
   icon: mdi:clock-outline
+sensor.yr_wind_speed:
+  icon: mdi:weather-windy
