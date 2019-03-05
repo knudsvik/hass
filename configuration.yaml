@@ -69,8 +69,15 @@ sensor:
         friendly_name: "Rute"
         value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'route') }}"
         icon_template: mdi:bus
-  - platform: template
-    sensors:
+      entur_austbo_rute_next:
+        friendly_name: "Rute"
+        value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'next_route') }}"
+        icon_template: mdi:bus
+      entur_austbo_next:
+        friendly_name: "Next Austbø"
+        unit_of_measurement: min
+        value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'next_due_in') }}"
+        icon_template: mdi:clock-outline
       entur_ringnotveien_rute:
         friendly_name: "Rute"
         value_template: "{{ state_attr('sensor.entur_ringnotveien_platform_44778', 'route') }}"
@@ -128,6 +135,12 @@ light:
 switch:
   - platform: tplink
     host: !secret tplink_ip
+  - platform: tplink
+    host: !secret tplink2_ip
+    enable_leds: false
+  - platform: tplink
+    host: !secret tplink3_ip
+    enable_leds: false
 
 # Text to speech
 tts:
