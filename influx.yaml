@@ -14,4 +14,4 @@ include:
     - sensor.voltage_chili
     - sensor.wc_temperature
     - sensor.wc_lux
-    - sensor.electricity_price_ringnotveien_21
+    - sensor.electricity_price
