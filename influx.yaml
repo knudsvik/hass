@@ -15,3 +15,4 @@ include:
     - sensor.wc_temperature
     - sensor.wc_lux
     - sensor.electricity_price
+    - air_quality.air_quality_norway
