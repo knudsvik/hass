@@ -22,7 +22,11 @@
   action:
     - service: switch.turn_on
       entity_id: switch.chili
-    - delay: 14:00:00
+- alias: 'Chili lys av'
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
     - service: switch.turn_off
       entity_id: switch.chili
 - alias: 'Pia morgen'
