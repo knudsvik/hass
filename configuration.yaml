@@ -105,7 +105,7 @@ sensor:
     value_template: '{{ value_json.state.lightlevel }}'
     unit_of_measurement: Lux
     name: 'WC Lux'
-  - platform: pi_hole
+  #- platform: pi_hole
 
 air_quality:
   - platform: norway_air
@@ -138,15 +138,7 @@ light:
       - light.laundry_ceiling3
       - light.laundry_ceiling4
 
-switch:
-  - platform: tplink
-    host: !secret tplink_ip
-  - platform: tplink
-    host: !secret tplink2_ip
-    enable_leds: false
-  - platform: tplink
-    host: !secret tplink3_ip
-    enable_leds: false
+tplink:
 
 # Text to speech
 tts:
