@@ -40,6 +40,11 @@
       friendly_name: "Rute"
       value_template: "{{ state_attr('sensor.entur_ringnotveien_platform_44778', 'route') }}"
       icon_template: mdi:bus
+    air_quality_pm10:
+      friendly_name: "Air quality pm10"
+      unit_of_measurement: ug/m3
+      value_template: "{{ state_attr('air_quality.air_quality_norway', 'particulate_matter_10') }}"
+      icon_template: mdi:air-purifier
 - platform: template
   sensors:
     voltage_chili:
