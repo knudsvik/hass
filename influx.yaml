@@ -17,3 +17,7 @@ include:
     - sensor.wc_lux
     - sensor.electricity_price
     - air_quality.air_quality_norway
+    - sensor.air_quality_pm10
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
