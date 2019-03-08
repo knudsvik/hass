@@ -1,0 +1,60 @@
+- platform: yr
+  monitored_conditions:
+    - temperature
+    - symbol
+    - windSpeed
+- platform: darksky
+  api_key: !secret dark_sky_token
+  language: nb
+  forecast:
+    - 0
+  monitored_conditions:
+    - summary
+- platform: entur_public_transport
+  stop_ids:
+    - !secret buss1
+    - !secret buss2
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: processor_use
+- platform: uptime
+- platform: template
+  sensors:
+    entur_austbo_rute:
+      friendly_name: "Rute"
+      value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'route') }}"
+      icon_template: mdi:bus
+    entur_austbo_rute_next:
+      friendly_name: "Rute"
+      value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'next_route') }}"
+      icon_template: mdi:bus
+    entur_austbo_next:
+      friendly_name: "Next Austbø"
+      unit_of_measurement: min
+      value_template: "{{ state_attr('sensor.entur_austbo_vest_platform_48514', 'next_due_in') }}"
+      icon_template: mdi:clock-outline
+    entur_ringnotveien_rute:
+      friendly_name: "Rute"
+      value_template: "{{ state_attr('sensor.entur_ringnotveien_platform_44778', 'route') }}"
+      icon_template: mdi:bus
+- platform: template
+  sensors:
+    voltage_chili:
+      friendly_name: "Spenning"
+      unit_of_measurement: 'V'
+      icon_template: mdi:flash
+      value_template: "{{ state_attr('switch.chili', 'voltage') }}"
+- platform: rest
+  resource: !secret hue_wc_temp
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'WC Temperature'
+- platform: rest
+  resource: !secret hue_wc_lux
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'WC Lux'
+#- platform: pi_hole
