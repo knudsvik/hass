@@ -89,6 +89,15 @@ light:
 
 tplink:
 
+homekit:
+  filter:
+    include_entities:
+      switch.chili
+  entity_config:
+    switch.chili:
+      name: Chili
+      type: switch
+
 # Text to speech
 tts:
   - platform: google
