@@ -85,3 +85,22 @@
   action:
     - service: switch.turn_on
       entity_id: switch.bookshelf
+
+###############################
+###         MEDIA           ###
+###############################
+
+- alias: 'Morgenradio'
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bad
+        volume_level: .05
+    - service: media_player.select_source
+      data_template:
+        entity_id:
+          - media_player.bad
+        source: 'NRK P13'
