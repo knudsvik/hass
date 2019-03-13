@@ -23,6 +23,9 @@ script: !include scripts.yaml
 sensor: !include sensors.yaml
 zone: !include zones.yaml
 
+recorder:
+  purge_keep_days: 1
+
 discovery:
   ignore:
     #- apple_tv
