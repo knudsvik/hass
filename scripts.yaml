@@ -1,0 +1,36 @@
+good_night_scene:
+  alias: God natt
+  sequence:
+    - service: switch.turn_off
+      entity_id:
+        - switch.bookshelf
+        - switch.colour
+    - service: media_player.media_pause
+      entity_id: media_player.bad
+    - service: media_player.turn_off
+      entity_id:
+        - media_player.samsung_tv_remote
+        - media_player.lg_tv_remote
+    - service: lights.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        brightness_pct: 5
+        color_name: red
+    - service: lights.turn_on
+      data:
+        entity_id: light.light.master_thorjan
+        brightness_pct: 10
+        color_name: purple
+no_one_home:
+  alias: Sistemann drar
+  sequence:
+    - service: switch.turn_off
+      entity_id:
+        - switch.bookshelf
+        - switch.colour
+    - service: media_player.media_pause
+      entity_id: media_player.bad
+    - service: media_player.turn_off
+      entity_id:
+        - media_player.samsung_tv_remote
+        - media_player.lg_tv_remote
