@@ -1,0 +1,21 @@
+filter:
+  include_entities:
+    - switch.bookshelf
+    - switch.chili
+    - switch.colour
+    - media_player.samsung_tv_remote
+    - script.good_night_scene
+entity_config:
+  switch.bookshelf:
+    name: Bokhylle
+    type: switch
+  switch.chili:
+    name: Chili
+    type: switch
+  switch.colour:
+    name: Fargekuler
+    type: switch
+  media_player.samsung_tv_remote:
+    name: TV
+    feature_list:
+      - feature: on_off
