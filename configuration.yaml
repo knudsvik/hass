@@ -18,6 +18,7 @@ http:
 
 automation: !include automations.yaml
 group: !include groups.yaml
+homekit: !include homekit.yaml
 influxdb: !include influx.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
@@ -79,6 +80,12 @@ media_player:
     host: !secret lg_ip
     access_token: !secret lg_access_token
 
+apple_tv:
+  - host: !secret stua_url
+    login_id: !secret stua_login
+    name: Stua
+    credentials: !secret stua_credentials
+
 tibber:
   access_token: !secret tibber_token
 
@@ -92,28 +99,7 @@ light:
 
 tplink:
 
-homekit:
-  filter:
-    include_entities:
-      - switch.bookshelf
-      - switch.chili
-      - switch.colour
-      - media_player.samsung_tv_remote
-  entity_config:
-    switch.bookshelf:
-      name: Bokhylle
-      type: switch
-    switch.chili:
-      name: Chili
-      type: switch
-    switch.colour:
-      name: Fargekuler
-      type: switch
-    media_player.samsung_tv_remote:
-      name: TV
-      feature_list:
-        - feature: on_off
-
 # Text to speech
 tts:
   - platform: google
+    base_url: !secret tts_url
