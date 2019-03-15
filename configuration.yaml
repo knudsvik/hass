@@ -70,6 +70,7 @@ weather:
 hue:
   bridges:
     - host: !secret hue_ip
+      allow_hue_groups: false
 
 media_player:
   - platform: samsungtv
@@ -96,6 +97,11 @@ light:
     entities:
       - light.laundry_ceiling3
       - light.laundry_ceiling4
+  - platform: group
+    name: wc
+    entities:
+      - light.wc1
+      - light.wc2
 
 tplink:
 
