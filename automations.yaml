@@ -1,5 +1,5 @@
 ###############################
-###       SYSTEM            ###
+###        SYSTEM           ###
 ###############################
 
 - alias: "Startup Notification"
@@ -7,28 +7,28 @@
     - platform: homeassistant
       event: start
   action:
-    - service: notify.ios_thorjan_x
+    - service: !secret notification1
       data:
         message: "Restarted"
 
 ###############################
-###       LIGHTS            ###
+###        MORNING          ###
 ###############################
 
-- alias: 'Chili lys'
+- alias: 'Morgenradio'
   trigger:
     platform: time
-    at: '07:00:00'
+    at: '06:00:00'
   action:
-    - service: switch.turn_on
-      entity_id: switch.chili
-- alias: 'Chili lys av'
-  trigger:
-    platform: time
-    at: '21:00:00'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.chili
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bad
+        volume_level: .05
+    - service: media_player.select_source
+      data_template:
+        entity_id:
+          - media_player.bad
+        source: 'NRK P13'
 - alias: 'Pia morgen'
   trigger:
     platform: time
@@ -48,9 +48,29 @@
         brightness_pct: 50
         color_name: lime
         transition: 60
-    - delay: 01:00:00
+- alias: 'Chili lys'
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.chili
+- alias: 'Morgen over'
+  trigger:
+    platform: time
+    at: '08:30:00'
+  action:
     - service: light.turn_off
-      entity_id: light.pia_under_bed
+      entity_id:
+        - light.master_thorjan
+        - light.pia_under_bed
+    - service: media_player.media_pause
+      entity_id: media_player.bad
+
+###############################
+###        EVENING          ###
+###############################
+
 - alias: 'Pia kveld'
   trigger:
     platform: time
@@ -66,13 +86,18 @@
       data:
         entity_id: light.pia_under_bed
         transition: 1800
-- alias: 'Thorjan morgen'
+- alias: 'Chili lys av'
   trigger:
     platform: time
-    at: '08:30:00'
+    at: '21:00:00'
   action:
-    - service: light.turn_off
-      entity_id: light.master_thorjan
+    - service: switch.turn_off
+      entity_id: switch.chili
+
+###############################
+###        WEEKEND          ###
+###############################
+
 - alias: 'Helg'
   trigger:
     platform: time
@@ -87,20 +112,33 @@
       entity_id: switch.bookshelf
 
 ###############################
-###         MEDIA           ###
+###         ZONES           ###
 ###############################
 
-- alias: 'Morgenradio'
+- alias: 'Tomt hus'
   trigger:
-    platform: time
-    at: '06:00:00'
+    platform: zone
+    entity_id: group.all_devices
+    zone: zone.home
+    event: leave
   action:
-    - service: media_player.volume_set
+    service: script.turn_on
+    entity_id: script.no_one_home
+- alias: 'Fra barnehage'
+  trigger:
+    platform: zone
+    entity_id: !secret bhg_person
+    zone: zone.barnehage
+    event: leave
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: !secret notification1
       data:
-        entity_id: media_player.bad
-        volume_level: .05
-    - service: media_player.select_source
-      data_template:
-        entity_id:
-          - media_player.bad
-        source: 'NRK P13'
+        message: "På vei hjem fra barnehagen"
