@@ -21,3 +21,4 @@ include:
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
+    - !secret odometer
