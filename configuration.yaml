@@ -29,7 +29,7 @@ recorder:
 
 discovery:
   ignore:
-    #- apple_tv
+    - apple_tv
     #- denonavr
     - harmony
     - philips_hue
@@ -81,11 +81,11 @@ media_player:
     host: !secret lg_ip
     access_token: !secret lg_access_token
 
-apple_tv:
-  - host: !secret stua_url
-    login_id: !secret stua_login
-    name: Stua
-    credentials: !secret stua_credentials
+#apple_tv:
+#  - host: !secret stua_url
+#    login_id: !secret stua_login
+#    name: Stua
+#    credentials: !secret stua_credentials
 
 tibber:
   access_token: !secret tibber_token
@@ -104,6 +104,12 @@ light:
       - light.wc2
 
 tplink:
+
+volkswagencarnet:
+  username: !secret vw_uid
+  password: !secret vw_pwd
+  update_interval:
+    minutes: 5
 
 # Text to speech
 tts:
