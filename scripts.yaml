@@ -13,11 +13,6 @@ good_night_scene:
         - media_player.lg_tv_remote
     - service: light.turn_on
       data:
-        entity_id: light.pia_under_bed
-        brightness_pct: 5
-        color_name: red
-    - service: light.turn_on
-      data:
         entity_id: light.master_thorjan
         brightness_pct: 10
         color_name: purple
