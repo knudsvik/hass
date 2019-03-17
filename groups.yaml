@@ -1,0 +1,6 @@
+adults:
+  name: Awesome People
+  view: false
+  entities:
+    - !secret device_tracker1
+    - !secret device_tracker2
