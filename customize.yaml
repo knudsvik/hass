@@ -46,3 +46,42 @@ sensor.entur_ringnotveien_platform_44778:
   icon: mdi:clock-outline
 sensor.yr_wind_speed:
   icon: mdi:weather-windy
+
+#########################
+###     VW CAR-NET    ###
+#########################
+
+switch.wvwzzzaazed903716_window_heater:
+  friendly_name: Vindusvarme
+switch.wvwzzzaazed903716_climatisation:
+  friendly_name: Forvarming
+switch.wvwzzzaazed903716_charging:
+  friendly_name: Lading
+sensor.wvwzzzaazed903716_service_inspection:
+  friendly_name: Tid før service
+sensor.wvwzzzaazed903716_odometer:
+  friendly_name: Odometer
+sensor.wvwzzzaazed903716_last_connected:
+  friendly_name: Sist Tilkoblet
+sensor.wvwzzzaazed903716_electric_range:
+  friendly_name: Gjenstående Rekkevidde
+sensor.wvwzzzaazed903716_climatisation_target_temperature:
+  friendly_name: Forvarmingstemperatur
+sensor.wvwzzzaazed903716_charging_time_left:
+  friendly_name: Gjenstående Ladetid
+sensor.wvwzzzaazed903716_charge_max_ampere:
+  friendly_name: Max Ampere
+sensor.wvwzzzaazed903716_battery_level:
+  friendly_name: Batterinivå
+lock.wvwzzzaazed903716_trunk_locked:
+  friendly_name: Bagasjerom Låst
+lock.wvwzzzaazed903716_doors_locked:
+  friendly_name: Dørene Låst
+binary_sensor.wvwzzzaazed903716_parking_light:
+  friendly_name: Parkeringslys
+binary_sensor.wvwzzzaazed903716_external_power:
+  friendly_name: Ladekabel Tilkoblet
+binary_sensor.wvwzzzaazed903716_climatisation_without_external_power:
+  friendly_name: Forvarming aktiv uten ladekabel
+device_tracker.wvwzzzaazed903716:
+  friendly_name: Elbil Plassering
