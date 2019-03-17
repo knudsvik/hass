@@ -81,11 +81,17 @@
         entity_id: light.pia_under_bed
         brightness_pct: 60
         color_name: hotpink
-    - delay: 01:30:00
-    - service: light.turn_off
+- alias: 'Pia nattlys'
+  trigger:
+    platform: time
+    at: '19:30:00'
+  action:
+    - service: light.turn_on
       data:
         entity_id: light.pia_under_bed
         transition: 1800
+        color_name: red
+        brightness_pct: 5
 - alias: 'Chili lys av'
   trigger:
     platform: time
@@ -118,16 +124,19 @@
 - alias: 'Tomt hus'
   trigger:
     platform: zone
-    entity_id: group.all_devices
+    entity_id: group.adults
     zone: zone.home
     event: leave
   action:
-    service: script.turn_on
-    entity_id: script.no_one_home
+    #- service: script.turn_on
+    #  entity_id: script.no_one_home
+    - service: !secret notification1
+      data:
+        message: "Ingen hjemme script ville kjørt"
 - alias: 'Fra barnehage'
   trigger:
     platform: zone
-    entity_id: !secret bhg_person
+    entity_id: !secret dad_person
     zone: zone.barnehage
     event: leave
   condition:
