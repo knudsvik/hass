@@ -16,7 +16,7 @@ good_night_scene:
         entity_id: light.master_thorjan
         brightness_pct: 10
         color_name: purple
-no_one_home:
+away:
   alias: Sistemann drar
   sequence:
     - service: switch.turn_off
