@@ -100,6 +100,23 @@
     - service: switch.turn_off
       entity_id: switch.chili
 
+- alias: "Car battery notification"
+  trigger:
+    platform: time
+    at: '21:30:00'
+  condition:
+    - condition: state
+      entity_id: !secret car-external-power
+      state: 'off'
+    - condition: numeric_state
+      entity_id: !secret car-battery
+      below: 50
+  action:
+    - service: !secret notification1
+      data:
+        title: "Vurder å lade bilen."
+        message: !secret car-battery-message
+
 ###############################
 ###        WEEKEND          ###
 ###############################
@@ -129,7 +146,7 @@
     event: leave
   action:
     #- service: script.turn_on
-    #  entity_id: script.no_one_home
+    #  entity_id: script.away
     - service: !secret notification1
       data:
         message: "Ingen hjemme script ville kjørt"
