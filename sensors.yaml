@@ -1,19 +1,7 @@
-- platform: yr
-  monitored_conditions:
-    - temperature
-    - symbol
-    - windSpeed
-- platform: darksky
-  api_key: !secret dark_sky_token
-  language: nb
-  forecast:
-    - 0
-  monitored_conditions:
-    - summary
-- platform: entur_public_transport
-  stop_ids:
-    - !secret buss1
-    - !secret buss2
+###############################
+###        SYSTEM           ###
+###############################
+
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
@@ -21,6 +9,15 @@
     - type: memory_free
     - type: processor_use
 - platform: uptime
+
+###############################
+###          BUS            ###
+###############################
+
+- platform: entur_public_transport
+  stop_ids:
+    - !secret buss1
+    - !secret buss2
 - platform: template
   sensors:
     entur_austbo_rute:
@@ -40,11 +37,35 @@
       friendly_name: "Rute"
       value_template: "{{ state_attr('sensor.entur_ringnotveien_platform_44778', 'route') }}"
       icon_template: mdi:bus
+
+###############################
+###          WEATHER        ###
+###############################
+
+- platform: yr
+  monitored_conditions:
+    - temperature
+    - symbol
+    - windSpeed
+- platform: darksky
+  api_key: !secret dark_sky_token
+  language: nb
+  forecast:
+    - 0
+  monitored_conditions:
+    - summary
+- platform: template
+  sensors:
     air_quality_pm10:
       friendly_name: "Air quality pm10"
       unit_of_measurement: ug/m3
       value_template: "{{ state_attr('air_quality.air_quality_norway', 'particulate_matter_10') }}"
       icon_template: mdi:air-purifier
+
+###############################
+###        ELECTRICITY      ###
+###############################
+
 - platform: template
   sensors:
     voltage_chili:
@@ -52,6 +73,11 @@
       unit_of_measurement: 'V'
       icon_template: mdi:flash
       value_template: "{{ state_attr('switch.chili', 'voltage') }}"
+
+###############################
+###        HUE MOTION       ###
+###############################
+
 - platform: rest
   resource: !secret hue_wc_temp
   value_template: '{{ value_json.state.temperature | float / 100 }}'
