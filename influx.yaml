@@ -5,6 +5,7 @@ username: !secret influx_user
 password: !secret influx_pass
 max_retries: 3
 default_measurement: state
+tags_attributes: friendly_name
 include:
   entities:
     - sensor.yr_temperature
@@ -24,3 +25,8 @@ include:
     - !secret car-odometer
     - !secret car-battery
     - !secret car-charging
+    - sensor.fiken_battery
+    - sensor.fiken_moisture
+    - sensor.fiken_light_intensity
+    - sensor.fiken_conductivity
+    - sensor.fiken_temperature
