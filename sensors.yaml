@@ -88,4 +88,13 @@
   value_template: '{{ value_json.state.lightlevel }}'
   unit_of_measurement: Lux
   name: 'WC Lux'
+
+
 #- platform: pi_hole
+
+###############################
+###         MI FLORA        ###
+###############################
+- platform: miflora
+  mac: !secret fiken_mac
+  name: Fiken
