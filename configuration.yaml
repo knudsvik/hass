@@ -20,12 +20,13 @@ automation: !include automations.yaml
 group: !include groups.yaml
 homekit: !include homekit.yaml
 influxdb: !include influx.yaml
+plant: !include plants.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 zone: !include zones.yaml
 
 recorder:
-  purge_keep_days: 1
+  purge_keep_days: 3
 
 discovery:
   ignore:
