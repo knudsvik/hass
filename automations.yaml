@@ -168,3 +168,17 @@
     - service: !secret notification1
       data:
         message: "På vei hjem fra barnehagen"
+
+###############################
+###         PLANTS          ###
+###############################
+
+- alias: 'Fiken problem'
+  trigger:
+    platform: state
+    entity_id: plant.27
+    to: 'problem'
+  action:
+    - service: !secret notification1
+      data:
+        message: "Fiken trenger hjelp. Problem: {{ state_attr('plant.27', 'problem') }}"
