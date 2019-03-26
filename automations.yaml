@@ -173,12 +173,19 @@
 ###         PLANTS          ###
 ###############################
 
-- alias: 'Fiken problem'
+- alias: 'Vanne fiken'
   trigger:
-    platform: state
-    entity_id: plant.27
-    to: 'problem'
+    platform: numeric_state
+    entity_id: sensor.fiken_moisture
+    below: 20
   action:
     - service: !secret notification1
-      data:
-        message: "Fiken trenger hjelp. Problem: {{ state_attr('plant.27', 'problem') }}"
+      data_template:
+        message: >
+          {% if states('sensor.fiken_conductivity') | int < 350 %}
+          Fiken trenger vann og mye næring.
+          {% elif states('sensor.fiken_conductivity') | int < 500 %}
+          Fiken trenger vann og muligens noe næring.
+          {% else %}
+          Fiken trenger vann uten næring.
+          {% endif %}
