@@ -1,0 +1,15 @@
+27:
+  sensors:
+    moisture: sensor.fiken_moisture
+    battery: sensor.fiken_battery
+    temperature: sensor.fiken_temperature
+    conductivity: sensor.fiken_conductivity
+    brightness: sensor.fiken_light_intensity
+  min_moisture: 20
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 1000
+  max_brightness: 35000
+  min_temperature: 8
+  max_temperature: 32
