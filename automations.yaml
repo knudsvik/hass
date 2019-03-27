@@ -55,6 +55,8 @@
   action:
     - service: switch.turn_on
       entity_id: switch.chili
+    - service: light.turn_on
+      entity_id: light.kitchen_pilke36
 - alias: 'Morgen over'
   trigger:
     platform: time
@@ -92,6 +94,7 @@
         transition: 1800
         color_name: red
         brightness_pct: 5
+
 - alias: 'Chili lys av'
   trigger:
     platform: time
@@ -99,6 +102,8 @@
   action:
     - service: switch.turn_off
       entity_id: switch.chili
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
 
 - alias: "Car battery notification"
   trigger:
