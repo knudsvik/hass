@@ -1,10 +1,15 @@
+- name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  radius: 50
+  icon: mdi:home
 - name: Jobb
   latitude: !secret work_latitude
-  longitude: !secret work_longtitude
+  longitude: !secret work_longitude
   radius: 250
   icon: mdi:worker
 - name: Barnehage
   latitude: !secret bhg_latitude
-  longitude: !secret bhg_longtitude
+  longitude: !secret bhg_longitude
   radius: 50
   icon: mdi:baby-buggy
