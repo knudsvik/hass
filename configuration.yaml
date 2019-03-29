@@ -34,7 +34,7 @@ discovery:
     #- denonavr
     - harmony
     - philips_hue
-    #- plex_mediaserver
+    - plex_mediaserver
     - samsung_tv
   #enable:
   #  - homekit
@@ -116,3 +116,8 @@ volkswagencarnet:
 tts:
   - platform: google
     base_url: !secret tts_url
+
+utility_meter:
+  car_distance:
+    source: !secret car-odometer
+    cycle: daily
