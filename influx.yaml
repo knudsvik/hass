@@ -25,6 +25,8 @@ include:
     - !secret car-odometer
     - !secret car-battery
     - !secret car-charging
+    - !secret car-external-power
+    - sensor.car_distance
     - sensor.fiken_battery
     - sensor.fiken_moisture
     - sensor.fiken_light_intensity
