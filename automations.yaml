@@ -143,12 +143,12 @@
 ###         ZONES           ###
 ###############################
 
-- alias: 'Tomt hus'
+- alias: 'Away'
   trigger:
-    platform: zone
+    platform: state
     entity_id: group.adults
-    zone: zone.home
-    event: leave
+    to: 'not_home'
+    for: '00:05:00'
   action:
     #- service: script.turn_on
     #  entity_id: script.away
