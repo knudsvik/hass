@@ -194,3 +194,35 @@
           {% else %}
           Fiken trenger vann uten næring.
           {% endif %}
+- alias: 'Vanne ficus benjamina'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora2_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+          Krøllfiken trenger vann og mye næring.
+          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+          Krøllfiken trenger vann og muligens noe næring.
+          {% else %}
+          Krøllfiken trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne draketre'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora3_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+          Draketre trenger vann og mye næring.
+          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+          Draketre trenger vann og muligens noe næring.
+          {% else %}
+          Draketre trenger vann uten næring.
+          {% endif %}
