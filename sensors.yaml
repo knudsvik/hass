@@ -96,5 +96,11 @@
 ###         MI FLORA        ###
 ###############################
 - platform: miflora
-  mac: !secret fiken_mac
+  mac: !secret miflora1_mac
   name: Fiken
+- platform: miflora
+  mac: !secret miflora2_mac
+  name: Miflora2
+- platform: miflora
+  mac: !secret miflora3_mac
+  name: Miflora3
