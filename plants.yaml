@@ -1,3 +1,18 @@
+26:
+  sensors:
+    moisture: sensor.miflora3_moisture
+    battery: sensor.miflora3_battery
+    temperature: sensor.miflora3_temperature
+    conductivity: sensor.miflora3_conductivity
+    brightness: sensor.miflora3_light_intensity
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 1500
+  max_brightness: 6000
+  min_temperature: 10
+  max_temperature: 32
 27:
   sensors:
     moisture: sensor.fiken_moisture
@@ -9,7 +24,22 @@
   max_moisture: 60
   min_conductivity: 350
   max_conductivity: 2000
-  min_brightness: 1000
+  min_brightness: 2500
+  max_brightness: 35000
+  min_temperature: 8
+  max_temperature: 32
+28:
+  sensors:
+    moisture: sensor.miflora2_moisture
+    battery: sensor.miflora2_battery
+    temperature: sensor.miflora2_temperature
+    conductivity: sensor.miflora2_conductivity
+    brightness: sensor.miflora2_light_intensity
+  min_moisture: 20
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 2500
   max_brightness: 35000
   min_temperature: 8
   max_temperature: 32
