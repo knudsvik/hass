@@ -32,3 +32,13 @@ include:
     - sensor.fiken_light_intensity
     - sensor.fiken_conductivity
     - sensor.fiken_temperature
+    - sensor.miflora2_battery
+    - sensor.miflora2_moisture
+    - sensor.miflora2_light_intensity
+    - sensor.miflora2_conductivity
+    - sensor.miflora2_temperature
+    - sensor.miflora3_battery
+    - sensor.miflora3_moisture
+    - sensor.miflora3_light_intensity
+    - sensor.miflora3_conductivity
+    - sensor.miflora3_temperature
