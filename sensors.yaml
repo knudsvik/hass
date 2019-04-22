@@ -90,7 +90,8 @@
   name: 'WC Lux'
 
 
-#- platform: pi_hole
+- platform: pi_hole
+  host: !secret rpi_url
 
 ###############################
 ###         MI FLORA        ###
