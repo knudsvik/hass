@@ -5,6 +5,7 @@ filter:
     - switch.colour
     - media_player.samsung_tv_remote
     - script.good_night_scene
+    - !secret car-clima
 entity_config:
   switch.bookshelf:
     name: Bokhylle
