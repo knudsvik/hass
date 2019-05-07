@@ -40,10 +40,6 @@ discovery:
   #  - homekit
 
 panel_iframe:
-  influxdb:
-    title: InfluxDB
-    icon: mdi:database
-    url: !secret influx_url
   grafana:
     title: Grafana
     icon: mdi:chart-line
@@ -114,7 +110,8 @@ volkswagencarnet:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
     base_url: !secret tts_url
 
 utility_meter:
