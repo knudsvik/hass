@@ -15,11 +15,11 @@
   max_temperature: 32
 27:
   sensors:
-    moisture: sensor.fiken_moisture
-    battery: sensor.fiken_battery
-    temperature: sensor.fiken_temperature
-    conductivity: sensor.fiken_conductivity
-    brightness: sensor.fiken_light_intensity
+    moisture: sensor.miflora1_moisture
+    battery: sensor.miflora1_battery
+    temperature: sensor.miflora1_temperature
+    conductivity: sensor.miflora1_conductivity
+    brightness: sensor.miflora1_light_intensity
   min_moisture: 20
   max_moisture: 60
   min_conductivity: 350
@@ -43,3 +43,33 @@
   max_brightness: 35000
   min_temperature: 8
   max_temperature: 32
+29:
+  sensors:
+    moisture: sensor.miflora5_moisture
+    battery: sensor.miflora5_battery
+    temperature: sensor.miflora5_temperature
+    conductivity: sensor.miflora5_conductivity
+    brightness: sensor.miflora5_light_intensity
+  min_moisture: 20
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 2500
+  max_brightness: 35000
+  min_temperature: 8
+  max_temperature: 32
+31:
+  sensors:
+    moisture: sensor.miflora4_moisture
+    battery: sensor.miflora4_battery
+    temperature: sensor.miflora4_temperature
+    conductivity: sensor.miflora4_conductivity
+    brightness: sensor.miflora4_light_intensity
+  min_moisture: 7
+  max_moisture: 50
+  min_conductivity: 50
+  max_conductivity: 1000
+  min_brightness: 1700
+  max_brightness: 75000
+  min_temperature: 5
+  max_temperature: 35

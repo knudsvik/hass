@@ -98,10 +98,16 @@
 ###############################
 - platform: miflora
   mac: !secret miflora1_mac
-  name: Fiken
+  name: Miflora1
 - platform: miflora
   mac: !secret miflora2_mac
   name: Miflora2
 - platform: miflora
   mac: !secret miflora3_mac
   name: Miflora3
+- platform: miflora
+  mac: !secret miflora4_mac
+  name: Miflora4
+- platform: miflora
+  mac: !secret miflora5_mac
+  name: Miflora5

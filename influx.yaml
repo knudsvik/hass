@@ -27,11 +27,11 @@ include:
     - !secret car-charging
     - !secret car-external-power
     - sensor.car_distance
-    - sensor.fiken_battery
-    - sensor.fiken_moisture
-    - sensor.fiken_light_intensity
-    - sensor.fiken_conductivity
-    - sensor.fiken_temperature
+    - sensor.miflora1_battery
+    - sensor.miflora1_moisture
+    - sensor.miflora1_light_intensity
+    - sensor.miflora1_conductivity
+    - sensor.miflora1_temperature
     - sensor.miflora2_battery
     - sensor.miflora2_moisture
     - sensor.miflora2_light_intensity
@@ -42,3 +42,13 @@ include:
     - sensor.miflora3_light_intensity
     - sensor.miflora3_conductivity
     - sensor.miflora3_temperature
+    - sensor.miflora4_battery
+    - sensor.miflora4_moisture
+    - sensor.miflora4_light_intensity
+    - sensor.miflora4_conductivity
+    - sensor.miflora4_temperature
+    - sensor.miflora5_battery
+    - sensor.miflora5_moisture
+    - sensor.miflora5_light_intensity
+    - sensor.miflora5_conductivity
+    - sensor.miflora5_temperature
