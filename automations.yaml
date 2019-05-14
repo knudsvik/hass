@@ -274,3 +274,35 @@
           {% else %}
           Devils backbone i trappå (29) trenger vann uten næring.
           {% endif %}
+- alias: 'Vanne Trachycarpus Fortunei (48)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora6_moisture
+    below: 16
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora6_conductivity') | int < 350 %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann og mye næring.
+          {% elif states('sensor.miflora6_conductivity') | int < 500 %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann og muligens noe næring.
+          {% else %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Cherry Bomb chili (75)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora7_moisture
+    below: 21
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora7_conductivity') | int < 150 %}
+          Cherry Bomb chili (75) trenger vann og mye næring.
+          {% elif states('sensor.miflora7_conductivity') | int < 300 %}
+          Cherry Bomb chili (75) trenger vann og muligens noe næring.
+          {% else %}
+          Cherry Bomb chili (75) trenger vann uten næring.
+          {% endif %}
