@@ -194,6 +194,22 @@
 ###         PLANTS          ###
 ###############################
 
+- alias: 'Vanne draketre på kjøkkenet (26)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora3_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+          Draketre på kjøkkenet (26) trenger vann og mye næring.
+          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+          Draketre på kjøkkenet (26) trenger vann og muligens noe næring.
+          {% else %}
+          Draketre på kjøkkenet (26) trenger vann uten næring.
+          {% endif %}
 - alias: 'Vanne fiken oppe (27)'
   trigger:
     platform: numeric_state
@@ -226,59 +242,59 @@
           {% else %}
           Krøllfiken ved inngang (28) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne draketre på kjøkkenet (26)'
+- alias: 'Vanne Devils backbone i trappå (29)'
   trigger:
     platform: numeric_state
-    entity_id: sensor.miflora3_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora3_conductivity') | int < 350 %}
-          Draketre på kjøkkenet (26) trenger vann og mye næring.
-          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
-          Draketre på kjøkkenet (26) trenger vann og muligens noe næring.
-          {% else %}
-          Draketre på kjøkkenet (26) trenger vann uten næring.
-          {% endif %}
-- alias: 'Vanne Fiken i trappå (31)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora4_moisture
+    entity_id: sensor.miflora5_moisture
     below: 7
   action:
     - service: !secret notification1
       data_template:
         message: >
-          {% if states('sensor.miflora4_conductivity') | int < 50 %}
-          Fiken i trappå (31) trenger vann og mye næring.
-          {% elif states('sensor.miflora4_conductivity') | int < 150 %}
-          Fiken i trappå (31) trenger vann og muligens noe næring.
+          {% if states('sensor.miflora5_conductivity') | int < 50 %}
+          Devils backbone i trappå (29) trenger vann og mye næring.
+          {% elif states('sensor.miflora5_conductivity') | int < 150 %}
+          Devils backbone i trappå (29) trenger vann og muligens noe næring.
           {% else %}
-          Fiken i trappå (31) trenger vann uten næring.
+          Devils backbone i trappå (29) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne Devils backbone i trappå (29)'
+- alias: 'Vanne Fiken i tv-stuå (30)'
   trigger:
     platform: numeric_state
-    entity_id: sensor.miflora5_moisture
+    entity_id: sensor.miflora8_moisture
     below: 20
   action:
     - service: !secret notification1
       data_template:
         message: >
-          {% if states('sensor.miflora5_conductivity') | int < 350 %}
-          Devils backbone i trappå (29) trenger vann og mye næring.
-          {% elif states('sensor.miflora5_conductivity') | int < 500 %}
-          Devils backbone i trappå (29) trenger vann og muligens noe næring.
+          {% if states('sensor.miflora8_conductivity') | int < 350 %}
+          Fiken i tv-stuå (30) trenger vann og mye næring.
+          {% elif states('sensor.miflora8_conductivity') | int < 500 %}
+          Fiken i tv-stuå (30) trenger vann og muligens noe næring.
           {% else %}
-          Devils backbone i trappå (29) trenger vann uten næring.
+          Fiken i tv-stuå (30) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Fiken i trappå (31)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora4_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora4_conductivity') | int < 350 %}
+          Fiken i trappå (31) trenger vann og mye næring.
+          {% elif states('sensor.miflora4_conductivity') | int < 500 %}
+          Fiken i trappå (31) trenger vann og muligens noe næring.
+          {% else %}
+          Fiken i trappå (31) trenger vann uten næring.
           {% endif %}
 - alias: 'Vanne Trachycarpus Fortunei (48)'
   trigger:
     platform: numeric_state
     entity_id: sensor.miflora6_moisture
-    below: 16
+    below: 15
   action:
     - service: !secret notification1
       data_template:
@@ -294,7 +310,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.miflora7_moisture
-    below: 21
+    below: 20
   action:
     - service: !secret notification1
       data_template:
@@ -305,4 +321,20 @@
           Cherry Bomb chili (75) trenger vann og muligens noe næring.
           {% else %}
           Cherry Bomb chili (75) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Aji Charapita (78)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora9_moisture
+    below: 22
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora9_conductivity') | int < 200 %}
+          Aji Charapita (78) trenger vann og mye næring.
+          {% elif states('sensor.miflora9_conductivity') | int < 400 %}
+          Aji Charapita (78) trenger vann og muligens noe næring.
+          {% else %}
+          Aji Charapita (78) trenger vann uten næring.
           {% endif %}

@@ -62,3 +62,13 @@ include:
     - sensor.miflora7_light_intensity
     - sensor.miflora7_conductivity
     - sensor.miflora7_temperature
+    - sensor.miflora8_battery
+    - sensor.miflora8_moisture
+    - sensor.miflora8_light_intensity
+    - sensor.miflora8_conductivity
+    - sensor.miflora8_temperature
+    - sensor.miflora9_battery
+    - sensor.miflora9_moisture
+    - sensor.miflora9_light_intensity
+    - sensor.miflora9_conductivity
+    - sensor.miflora9_temperature

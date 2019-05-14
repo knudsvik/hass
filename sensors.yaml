@@ -117,3 +117,9 @@
 - platform: miflora
   mac: !secret miflora7_mac
   name: Miflora7
+- platform: miflora
+  mac: !secret miflora8_mac
+  name: Miflora8
+- platform: miflora
+  mac: !secret miflora9_mac
+  name: Miflora9
