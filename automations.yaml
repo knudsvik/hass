@@ -110,7 +110,6 @@
         transition: 1800
         color_name: red
         brightness_pct: 5
-
 - alias: 'Chili lys av'
   trigger:
     platform: time
@@ -120,7 +119,6 @@
       entity_id: switch.chili
     - service: light.turn_off
       entity_id: light.kitchen_pilke36
-
 - alias: "Car battery notification"
   trigger:
     platform: time
@@ -338,3 +336,46 @@
           {% else %}
           Aji Charapita (78) trenger vann uten næring.
           {% endif %}
+
+###############################
+###         LIGHTS          ###
+###############################
+
+- alias: 'WC lys dag'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hue_motion_wc
+    to: 'on'
+  condition:
+    condition: time
+    after: '06:00'
+    before: '22:30'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wc
+        brightness_pct: 50
+- alias: 'WC lys natt'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hue_motion_wc
+    to: 'on'
+  condition:
+    condition: time
+    after: '22:30'
+    before: '06:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wc1
+        brightness_pct: 1
+- alias: 'WC lys av'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.hue_motion_wc
+      to: 'off'
+      for:
+        minutes: 7
+  action:
+    - service: light.turn_off
+      entity_id: light.wc
