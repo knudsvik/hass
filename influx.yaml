@@ -15,7 +15,6 @@ include:
     - sensor.technical_motion
     - sensor.voltage_chili
     - sensor.wc_temperature
-    - sensor.wc_lux
     - sensor.electricity_price
     - air_quality.air_quality_norway
     - sensor.air_quality_pm10
