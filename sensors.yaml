@@ -74,22 +74,6 @@
       icon_template: mdi:flash
       value_template: "{{ state_attr('switch.chili', 'voltage') }}"
 
-###############################
-###        HUE MOTION       ###
-###############################
-
-- platform: rest
-  resource: !secret hue_wc_temp
-  value_template: '{{ value_json.state.temperature | float / 100 }}'
-  unit_of_measurement: °C
-  name: 'WC Temperature'
-- platform: rest
-  resource: !secret hue_wc_lux
-  value_template: '{{ value_json.state.lightlevel }}'
-  unit_of_measurement: Lux
-  name: 'WC Lux'
-
-
 - platform: pi_hole
   host: !secret rpi_url
 
