@@ -1,10 +1,4 @@
 homeassistant:
-  name: !secret name
-  latitude: !secret latitude
-  longitude: !secret longitude
-  elevation: 10
-  unit_system: metric
-  time_zone: !secret tz
   customize: !include customize.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
