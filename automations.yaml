@@ -73,6 +73,8 @@
       entity_id: switch.chili
     - service: light.turn_on
       entity_id: light.kitchen_pilke36
+    - service: switch.turn_on
+      entity_id: switch.colour
 - alias: 'Morgen over'
   trigger:
     platform: time
@@ -119,6 +121,8 @@
       entity_id: switch.chili
     - service: light.turn_off
       entity_id: light.kitchen_pilke36
+    - service: switch.turn_off
+      entity_id: switch.colour
 - alias: "Car battery notification"
   trigger:
     platform: time
@@ -256,7 +260,7 @@
           {% else %}
           Devils backbone i trappå (29) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne Fiken i tv-stuå (30)'
+- alias: 'Vanne Peter P. ute (72)'
   trigger:
     platform: numeric_state
     entity_id: sensor.miflora8_moisture
@@ -265,12 +269,12 @@
     - service: !secret notification1
       data_template:
         message: >
-          {% if states('sensor.miflora8_conductivity') | int < 350 %}
-          Fiken i tv-stuå (30) trenger vann og mye næring.
-          {% elif states('sensor.miflora8_conductivity') | int < 500 %}
-          Fiken i tv-stuå (30) trenger vann og muligens noe næring.
+          {% if states('sensor.miflora8_conductivity') | int < 150 %}
+          Peter P. ute (72) trenger vann og mye næring.
+          {% elif states('sensor.miflora8_conductivity') | int < 300 %}
+          Peter P. ute (72) trenger vann og muligens noe næring.
           {% else %}
-          Fiken i tv-stuå (30) trenger vann uten næring.
+          Peter P. ute (72) trenger vann uten næring.
           {% endif %}
 - alias: 'Vanne Fiken i trappå (31)'
   trigger:
