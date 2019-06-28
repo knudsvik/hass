@@ -58,21 +58,21 @@
   max_brightness: 75000
   min_temperature: 5
   max_temperature: 35
-31:
+105:
   sensors:
     moisture: sensor.miflora4_moisture
     battery: sensor.miflora4_battery
     temperature: sensor.miflora4_temperature
     conductivity: sensor.miflora4_conductivity
     brightness: sensor.miflora4_light_intensity
-  min_moisture: 20
+  min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
   max_conductivity: 2000
-  min_brightness: 2500
+  min_brightness: 2000
   max_brightness: 35000
-  min_temperature: 8
-  max_temperature: 32
+  min_temperature: 10
+  max_temperature: 35
 48:
   sensors:
     moisture: sensor.miflora6_moisture
