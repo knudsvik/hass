@@ -22,7 +22,6 @@ away:
     - service: switch.turn_off
       entity_id:
         - switch.bookshelf
-        - switch.colour
     - service: media_player.media_pause
       entity_id: media_player.bad
     - service: media_player.turn_off
