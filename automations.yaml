@@ -168,11 +168,8 @@
     to: 'not_home'
     for: '00:05:00'
   action:
-    #- service: script.turn_on
-    #  entity_id: script.away
-    - service: !secret notification1
-      data:
-        message: "Ingen hjemme script ville kjørt"
+    - service: script.turn_on
+      entity_id: script.away
 - alias: 'Fra barnehage'
   trigger:
     platform: zone
@@ -276,21 +273,21 @@
           {% else %}
           Peter P. ute (72) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne Fiken i trappå (31)'
+- alias: 'Vanne Arekapalme (105)'
   trigger:
     platform: numeric_state
     entity_id: sensor.miflora4_moisture
-    below: 20
+    below: 15
   action:
     - service: !secret notification1
       data_template:
         message: >
           {% if states('sensor.miflora4_conductivity') | int < 350 %}
-          Fiken i trappå (31) trenger vann og mye næring.
+          Arekapalme (105) trenger vann og mye næring.
           {% elif states('sensor.miflora4_conductivity') | int < 500 %}
-          Fiken i trappå (31) trenger vann og muligens noe næring.
+          Arekapalme (105) trenger vann og muligens noe næring.
           {% else %}
-          Fiken i trappå (31) trenger vann uten næring.
+          Arekapalme (105) trenger vann uten næring.
           {% endif %}
 - alias: 'Vanne Trachycarpus Fortunei (48)'
   trigger:
