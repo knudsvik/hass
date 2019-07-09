@@ -70,11 +70,11 @@
     at: '07:00:00'
   action:
     - service: switch.turn_on
-      entity_id: switch.chili
+      entity_id:
+        - switch.chili
+        - switch.colour
     - service: light.turn_on
       entity_id: light.kitchen_pilke36
-    - service: switch.turn_on
-      entity_id: switch.colour
 - alias: 'Morgen over'
   trigger:
     platform: time
@@ -118,11 +118,11 @@
     at: '21:00:00'
   action:
     - service: switch.turn_off
-      entity_id: switch.chili
+      entity_id:
+        - switch.chili
+        - switch.colour
     - service: light.turn_off
       entity_id: light.kitchen_pilke36
-    - service: switch.turn_off
-      entity_id: switch.colour
 - alias: "Car battery notification"
   trigger:
     platform: time
@@ -337,6 +337,22 @@
           {% else %}
           Aji Charapita (78) trenger vann uten næring.
           {% endif %}
+- alias: 'Vanne Schefflera Arboricola (107)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora10_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora9_conductivity') | int < 200 %}
+          Paraplypalmen (107) trenger vann og mye næring.
+          {% elif states('sensor.miflora9_conductivity') | int < 400 %}
+          Paraplypalmen (107) trenger vann og muligens noe næring.
+          {% else %}
+          Paraplypalmen (107) trenger vann uten næring.
+          {% endif %}
 
 ###############################
 ###         LIGHTS          ###
@@ -345,7 +361,7 @@
 - alias: 'WC lys dag'
   trigger:
     platform: state
-    entity_id: binary_sensor.hue_motion_wc
+    entity_id: binary_sensor.multisensor_motion
     to: 'on'
   condition:
     condition: time
@@ -359,7 +375,7 @@
 - alias: 'WC lys natt'
   trigger:
     platform: state
-    entity_id: binary_sensor.hue_motion_wc
+    entity_id: binary_sensor.multisensor_motion
     to: 'on'
   condition:
     condition: time
@@ -373,10 +389,26 @@
 - alias: 'WC lys av'
   trigger:
     - platform: state
-      entity_id: binary_sensor.hue_motion_wc
+      entity_id: binary_sensor.multisensor_motion
       to: 'off'
       for:
-        minutes: 7
+        minutes: 3
   action:
     - service: light.turn_off
       entity_id: light.wc
+- alias: 'Arbeidslys'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_pilke36
+- alias: 'Arbeidslys av'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
