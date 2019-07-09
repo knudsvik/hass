@@ -112,3 +112,6 @@ utility_meter:
   car_distance:
     source: !secret car-odometer
     cycle: daily
+
+hacs:
+  token: !secret github_hacs
