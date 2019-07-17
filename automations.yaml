@@ -177,13 +177,16 @@
     zone: zone.barnehage
     event: leave
   condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: !secret device_tracker2
+      state: home
   action:
     - service: !secret notification2
       data:
