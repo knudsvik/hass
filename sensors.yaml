@@ -63,16 +63,23 @@
       icon_template: mdi:air-purifier
 
 ###############################
-###        ELECTRICITY      ###
+###            MISC         ###
 ###############################
 
+# Denne burde hete noe annet...
 - platform: template
   sensors:
     voltage_chili:
       friendly_name: "Spenning"
       unit_of_measurement: 'V'
       icon_template: mdi:flash
-      value_template: "{{ state_attr('switch.chili', 'voltage') }}"
+      value_template: "{{ state_attr('switch.bookshelf', 'voltage') }}"
+
+    vaskemaskin_effekt:
+      friendly_name: "Vaskemaskin effekt"
+      unit_of_measurement: 'W'
+      icon_template: mdi:washing-machine
+      value_template: "{{ state_attr('switch.vaskemaskin', 'current_power_w') }}"
 
 - platform: pi_hole
   host: !secret rpi_url
