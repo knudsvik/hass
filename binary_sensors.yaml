@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    vaskemaskin:
+      friendly_name: "Vaskemaskin"
+      icon_template: mdi:washing-machine
+      delay_off:
+        minutes: 1
+      value_template: >-
+        {{ states('sensor.vaskemaskin_effekt')|float > 1 }}
