@@ -23,8 +23,8 @@ light.wc:
 
 switch.bookshelf:
   icon: mdi:glass-cocktail
-switch.chili:
-  icon: mdi:desk-lamp
+switch.vaskemaskin:
+  icon: mdi:washing-machine
 switch.colour:
   icon: mdi:album
 
