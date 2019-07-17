@@ -34,3 +34,10 @@ away:
       entity_id:
         - media_player.samsung_tv_remote
         - media_player.lg_tv_remote
+    - service: automation.turn_on
+      entity_id: automation.motion_when_away
+home:
+  alias: Home again
+  sequence:
+    - service: automation.turn_off
+      entity_id: automation.motion_when_away
