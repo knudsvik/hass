@@ -11,6 +11,7 @@ http:
   ssl_key: /ssl/privkey.pem
 
 automation: !include automations.yaml
+binary_sensor: !include binary_sensors.yaml
 group: !include groups.yaml
 homekit: !include homekit.yaml
 influxdb: !include influx.yaml
