@@ -8,24 +8,17 @@ default_measurement: state
 tags_attributes: friendly_name
 include:
   entities:
-    - sensor.yr_temperature
-    - sensor.yr_wind_speed
-    - sensor.kott_motion
-    - sensor.laundry_motion
-    - sensor.technical_motion
-    - sensor.voltage_chili
-    - sensor.wc_temperature
-    - sensor.electricity_price
-    - air_quality.air_quality_norway
-    - sensor.air_quality_pm10
-    - sensor.speedtest_download
-    - sensor.speedtest_ping
-    - sensor.speedtest_upload
     - !secret car-odometer
     - !secret car-battery
     - !secret car-charging
     - !secret car-external-power
+    - air_quality.air_quality_norway
+    - binary_sensor.vaskemaskin
+    - sensor.air_quality_pm10
     - sensor.car_distance
+    - sensor.electricity_price
+    - sensor.kott_motion
+    - sensor.laundry_motion
     - sensor.miflora1_battery
     - sensor.miflora1_moisture
     - sensor.miflora1_light_intensity
@@ -76,3 +69,12 @@ include:
     - sensor.miflora10_light_intensity
     - sensor.miflora10_conductivity
     - sensor.miflora10_temperature
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+    - sensor.speedtest_upload
+    - sensor.technical_motion
+    - sensor.vaskemaskin_effekt
+    - sensor.voltage_chili
+    - sensor.wc_temperature
+    - sensor.yr_temperature
+    - sensor.yr_wind_speed
