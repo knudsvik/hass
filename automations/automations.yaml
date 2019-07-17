@@ -1,0 +1,442 @@
+###############################
+###        SYSTEM           ###
+###############################
+
+- alias: "Startup Notification"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: !secret notification1
+      data:
+        message: "Restarted"
+
+###############################
+###        MORNING          ###
+###############################
+
+- alias: 'Morgenradio'
+  trigger:
+    platform: time
+    at: '06:15:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bad
+        volume_level: .05
+    - service: media_player.select_source
+      data_template:
+        entity_id:
+          - media_player.bad
+        source: 'NRK P13'
+- alias: 'Pia morgen'
+  trigger:
+    platform: time
+    at: '06:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        brightness_pct: 50
+        color_name: lime
+        transition: 60
+- alias: 'Pia morgen helg'
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    condition: time
+    weekday:
+      - sat
+      - sun
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        brightness_pct: 50
+        color_name: lime
+        transition: 60
+- alias: 'Chili lys'
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id:
+#        - switch.chili
+        - switch.colour
+    - service: light.turn_on
+      entity_id: light.kitchen_pilke36
+- alias: 'Morgen over'
+  trigger:
+    platform: time
+    at: '08:30:00'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.master_thorjan
+        - light.pia_under_bed
+    - service: media_player.media_pause
+      entity_id: media_player.bad
+
+###############################
+###        EVENING          ###
+###############################
+
+- alias: 'Pia kveld'
+  trigger:
+    platform: time
+    at: '18:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        brightness_pct: 60
+        color_name: hotpink
+- alias: 'Pia nattlys'
+  trigger:
+    platform: time
+    at: '19:30:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.pia_under_bed
+        transition: 1800
+        color_name: red
+        brightness_pct: 5
+- alias: 'Chili lys av'
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id:
+#        - switch.chili
+        - switch.colour
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
+- alias: "Car battery notification"
+  trigger:
+    platform: time
+    at: '21:30:00'
+  condition:
+    - condition: state
+      entity_id: !secret car-external-power
+      state: 'off'
+    - condition: numeric_state
+      entity_id: !secret car-battery
+      below: 51
+  action:
+    - service: !secret notification1
+      data:
+        title: "Vurder å lade bilen."
+        message: !secret car-battery-message
+
+###############################
+###        WEEKEND          ###
+###############################
+
+- alias: 'Helg'
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: time
+    weekday:
+      - fri
+      - sat
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bookshelf
+
+###############################
+###         ZONES           ###
+###############################
+
+- alias: 'Away'
+  trigger:
+    platform: state
+    entity_id: group.adults
+    to: 'not_home'
+    for: '00:05:00'
+  action:
+    - service: script.turn_on
+      entity_id: script.away
+- alias: 'Home'
+  trigger:
+    platform: state
+    entity_id: group.adults
+    to: 'home'
+  action:
+    - service: script.turn_on
+      entity_id: script.home
+- alias: 'Fra barnehage'
+  trigger:
+    platform: zone
+    entity_id: !secret dad_person
+    zone: zone.barnehage
+    event: leave
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: !secret device_tracker2
+      state: home
+  action:
+    - service: !secret notification2
+      data:
+        message: "På vei hjem fra barnehagen"
+
+###############################
+###         PLANTS          ###
+###############################
+
+- alias: 'Vanne draketre på kjøkkenet (26)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora3_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+          Draketre på kjøkkenet (26) trenger vann og mye næring.
+          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+          Draketre på kjøkkenet (26) trenger vann og muligens noe næring.
+          {% else %}
+          Draketre på kjøkkenet (26) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne fiken oppe (27)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora1_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora1_conductivity') | int < 350 %}
+          Fiken oppe (27) trenger vann og mye næring.
+          {% elif states('sensor.miflora1_conductivity') | int < 500 %}
+          Fiken oppe (27) trenger vann og muligens noe næring.
+          {% else %}
+          Fiken oppe (27) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne krøllfiken ved inngang (28)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora2_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+          Krøllfiken ved inngang (28) trenger vann og mye næring.
+          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+          Krøllfiken ved inngang (28) trenger vann og muligens noe næring.
+          {% else %}
+          Krøllfiken ved inngang (28) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Devils backbone i trappå (29)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora5_moisture
+    below: 7
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora5_conductivity') | int < 50 %}
+          Devils backbone i trappå (29) trenger vann og mye næring.
+          {% elif states('sensor.miflora5_conductivity') | int < 150 %}
+          Devils backbone i trappå (29) trenger vann og muligens noe næring.
+          {% else %}
+          Devils backbone i trappå (29) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Peter P. ute (72)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora8_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora8_conductivity') | int < 150 %}
+          Peter P. ute (72) trenger vann og mye næring.
+          {% elif states('sensor.miflora8_conductivity') | int < 300 %}
+          Peter P. ute (72) trenger vann og muligens noe næring.
+          {% else %}
+          Peter P. ute (72) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Arekapalme (105)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora4_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora4_conductivity') | int < 350 %}
+          Arekapalme (105) trenger vann og mye næring.
+          {% elif states('sensor.miflora4_conductivity') | int < 500 %}
+          Arekapalme (105) trenger vann og muligens noe næring.
+          {% else %}
+          Arekapalme (105) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Trachycarpus Fortunei (48)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora6_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora6_conductivity') | int < 350 %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann og mye næring.
+          {% elif states('sensor.miflora6_conductivity') | int < 500 %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann og muligens noe næring.
+          {% else %}
+          Fortunei-palmen på kjøkkenet (48) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Cherry Bomb chili (75)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora7_moisture
+    below: 20
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora7_conductivity') | int < 150 %}
+          Cherry Bomb chili (75) trenger vann og mye næring.
+          {% elif states('sensor.miflora7_conductivity') | int < 300 %}
+          Cherry Bomb chili (75) trenger vann og muligens noe næring.
+          {% else %}
+          Cherry Bomb chili (75) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Aji Charapita (78)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora9_moisture
+    below: 22
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora9_conductivity') | int < 200 %}
+          Aji Charapita (78) trenger vann og mye næring.
+          {% elif states('sensor.miflora9_conductivity') | int < 400 %}
+          Aji Charapita (78) trenger vann og muligens noe næring.
+          {% else %}
+          Aji Charapita (78) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Schefflera Arboricola (107)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora10_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora9_conductivity') | int < 200 %}
+          Paraplypalmen (107) trenger vann og mye næring.
+          {% elif states('sensor.miflora9_conductivity') | int < 400 %}
+          Paraplypalmen (107) trenger vann og muligens noe næring.
+          {% else %}
+          Paraplypalmen (107) trenger vann uten næring.
+          {% endif %}
+
+###############################
+###         LIGHTS          ###
+###############################
+
+- alias: 'WC lys dag'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'on'
+  condition:
+    condition: time
+    after: '06:00'
+    before: '22:30'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wc
+        brightness_pct: 50
+- alias: 'WC lys natt'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'on'
+  condition:
+    condition: time
+    after: '22:30'
+    before: '06:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.wc1
+        brightness_pct: 1
+- alias: 'WC lys av'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multisensor_motion
+      to: 'off'
+      for:
+        minutes: 3
+  action:
+    - service: light.turn_off
+      entity_id: light.wc
+- alias: 'Arbeidslys'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_pilke36
+- alias: 'Arbeidslys av'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.multisensor_motion
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
+
+###############################
+###   MISC NOTIFICATIONS    ###
+###############################
+
+- alias: "Vaskemaskin ferdig"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vaskemaskin
+      to: 'off'
+  action:
+    - service: !secret notification2
+      data:
+        message: "Vaskemaskinen er ferdig"
+    - service: !secret notification1
+      data:
+        message: "Vaskemaskinen er ferdig"
