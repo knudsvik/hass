@@ -10,9 +10,6 @@ entity_config:
   switch.bookshelf:
     name: Bokhylle
     type: switch
-  switch.chili:
-    name: Chili
-    type: switch
   switch.colour:
     name: Fargekuler
     type: switch
