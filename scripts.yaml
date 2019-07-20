@@ -3,6 +3,8 @@ good_night_scene:
   sequence:
     - service: automation.turn_off
       entity_id: automation.arbeidslys
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
     - service: switch.turn_off
       entity_id:
         - switch.bookshelf
@@ -28,6 +30,8 @@ away:
     - service: switch.turn_off
       entity_id:
         - switch.bookshelf
+    - service: light.turn_off
+      entity_id: light.kitchen_pilke36
     - service: media_player.media_pause
       entity_id: media_player.bad
     - service: media_player.turn_off
