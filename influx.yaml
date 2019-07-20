@@ -69,6 +69,11 @@ include:
     - sensor.miflora10_light_intensity
     - sensor.miflora10_conductivity
     - sensor.miflora10_temperature
+    - sensor.miflora11_battery
+    - sensor.miflora11_moisture
+    - sensor.miflora11_light_intensity
+    - sensor.miflora11_conductivity
+    - sensor.miflora11_temperature
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload

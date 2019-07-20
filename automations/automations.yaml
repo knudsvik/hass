@@ -357,12 +357,28 @@
     - service: !secret notification1
       data_template:
         message: >
-          {% if states('sensor.miflora9_conductivity') | int < 200 %}
+          {% if states('sensor.miflora10_conductivity') | int < 350 %}
           Paraplypalmen (107) trenger vann og mye næring.
-          {% elif states('sensor.miflora9_conductivity') | int < 400 %}
+          {% elif states('sensor.miflora10_conductivity') | int < 500 %}
           Paraplypalmen (107) trenger vann og muligens noe næring.
           {% else %}
           Paraplypalmen (107) trenger vann uten næring.
+          {% endif %}
+- alias: 'Vanne Yucca Elephantipes (110)'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.miflora11_moisture
+    below: 15
+  action:
+    - service: !secret notification1
+      data_template:
+        message: >
+          {% if states('sensor.miflora11_conductivity') | int < 350 %}
+          Yuccapalmen (110) trenger vann og mye næring.
+          {% elif states('sensor.miflora11_conductivity') | int < 500 %}
+          Yuccapalmen (110) trenger vann og muligens noe næring.
+          {% else %}
+          Yuccapalmen (110) trenger vann uten næring.
           {% endif %}
 
 ###############################
