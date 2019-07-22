@@ -87,8 +87,8 @@ light:
   - platform: group
     name: laundry
     entities:
-      - light.laundry_ceiling3
-      - light.laundry_ceiling4
+      - light.laundry_ceiling1
+      - light.laundry_ceiling2
   - platform: group
     name: wc
     entities:
