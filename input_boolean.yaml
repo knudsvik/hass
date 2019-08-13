@@ -1,0 +1,8 @@
+not_appliances_2jan:
+  name: Varsler Appliances Thorjan
+  initial: on
+  icon: mdi:washing-machine
+not_appliances_tatjana:
+  name: Varsler Appliances Marianne
+  initial: on
+  icon: mdi:washing-machine
