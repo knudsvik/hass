@@ -63,7 +63,7 @@
       icon_template: mdi:air-purifier
 
 ###############################
-###            MISC         ###
+###        ELEKTRISK        ###
 ###############################
 
 # Denne burde hete noe annet...
@@ -80,6 +80,27 @@
       unit_of_measurement: 'W'
       icon_template: mdi:washing-machine
       value_template: "{{ state_attr('switch.vaskemaskin', 'current_power_w') }}"
+
+    tibber_spenning_fase1:
+      friendly_name: "Spenning fase 1"
+      unit_of_measurement: 'V'
+      icon_template: mdi:flash
+      value_template: "{{ state_attr('sensor.tibber', 'voltagePhase1') }}"
+    tibber_spenning_fase2:
+      friendly_name: "Spenning fase 2"
+      unit_of_measurement: 'V'
+      icon_template: mdi:flash
+      value_template: "{{ state_attr('sensor.tibber', 'voltagePhase2') }}"
+    tibber_spenning_fase3:
+      friendly_name: "Spenning fase 3"
+      unit_of_measurement: 'V'
+      icon_template: mdi:flash
+      value_template: "{{ state_attr('sensor.tibber', 'voltagePhase3') }}"
+
+
+###############################
+###           MISC          ###
+###############################
 
 - platform: pi_hole
   host: !secret rpi_url
