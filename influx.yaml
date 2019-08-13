@@ -78,8 +78,11 @@ include:
     - sensor.speedtest_ping
     - sensor.speedtest_upload
     - sensor.technical_motion
+    - sensor.tibber
+    - sensor.tibber_spenning_fase1
+    - sensor.tibber_spenning_fase2
+    - sensor.tibber_spenning_fase3
     - sensor.vaskemaskin_effekt
-    - sensor.voltage_chili
     - sensor.wc_temperature
     - sensor.yr_temperature
     - sensor.yr_wind_speed
