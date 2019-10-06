@@ -76,22 +76,22 @@
 ###         PLANTS          ###
 ###############################
 
-- alias: 'Vanne draketre på kjøkkenet (26)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora3_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora3_conductivity') | int < 350 %}
-          Draketre på kjøkkenet (26) trenger vann og mye næring.
-          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
-          Draketre på kjøkkenet (26) trenger vann og muligens noe næring.
-          {% else %}
-          Draketre på kjøkkenet (26) trenger vann uten næring.
-          {% endif %}
+#- alias: 'Vanne draketre på kjøkkenet (26)'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.miflora3_moisture
+#    below: 15
+#  action:
+#    - service: !secret notification1
+#      data_template:
+#        message: >
+#          {% if states('sensor.miflora3_conductivity') | int < 350 %}
+#          Draketre på kjøkkenet (26) trenger vann og mye næring.
+#          {% elif states('sensor.miflora3_conductivity') | int < 500 %}
+#          Draketre på kjøkkenet (26) trenger vann og muligens noe næring.
+#          {% else %}
+#          Draketre på kjøkkenet (26) trenger vann uten næring.
+#          {% endif %}
 - alias: 'Vanne fiken oppe (27)'
   trigger:
     platform: numeric_state
@@ -156,38 +156,38 @@
           {% else %}
           Peter P. ute (72) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne Arekapalme (105)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora4_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora4_conductivity') | int < 350 %}
-          Arekapalme (105) trenger vann og mye næring.
-          {% elif states('sensor.miflora4_conductivity') | int < 500 %}
-          Arekapalme (105) trenger vann og muligens noe næring.
-          {% else %}
-          Arekapalme (105) trenger vann uten næring.
-          {% endif %}
-- alias: 'Vanne Trachycarpus Fortunei (48)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora6_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora6_conductivity') | int < 350 %}
-          Fortunei-palmen på kjøkkenet (48) trenger vann og mye næring.
-          {% elif states('sensor.miflora6_conductivity') | int < 500 %}
-          Fortunei-palmen på kjøkkenet (48) trenger vann og muligens noe næring.
-          {% else %}
-          Fortunei-palmen på kjøkkenet (48) trenger vann uten næring.
-          {% endif %}
+#- alias: 'Vanne Arekapalme (105)'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.miflora4_moisture
+#    below: 15
+#  action:
+#    - service: !secret notification1
+#      data_template:
+#        message: >
+#          {% if states('sensor.miflora4_conductivity') | int < 350 %}
+#          Arekapalme (105) trenger vann og mye næring.
+#          {% elif states('sensor.miflora4_conductivity') | int < 500 %}
+#          Arekapalme (105) trenger vann og muligens noe næring.
+#          {% else %}
+#          Arekapalme (105) trenger vann uten næring.
+#          {% endif %}
+#- alias: 'Vanne Trachycarpus Fortunei (48)'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.miflora6_moisture
+#    below: 15
+#  action:
+#    - service: !secret notification1
+#      data_template:
+#        message: >
+#          {% if states('sensor.miflora6_conductivity') | int < 350 %}
+#          Fortunei-palmen på kjøkkenet (48) trenger vann og mye næring.
+#          {% elif states('sensor.miflora6_conductivity') | int < 500 %}
+#          Fortunei-palmen på kjøkkenet (48) trenger vann og muligens noe næring.
+#          {% else %}
+#          Fortunei-palmen på kjøkkenet (48) trenger vann uten næring.
+#          {% endif %}
 - alias: 'Vanne Cherry Bomb chili (75)'
   trigger:
     platform: numeric_state
@@ -220,35 +220,19 @@
           {% else %}
           Aji Charapita (78) trenger vann uten næring.
           {% endif %}
-- alias: 'Vanne Schefflera Arboricola (107)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora10_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora10_conductivity') | int < 350 %}
-          Paraplypalmen (107) trenger vann og mye næring.
-          {% elif states('sensor.miflora10_conductivity') | int < 500 %}
-          Paraplypalmen (107) trenger vann og muligens noe næring.
-          {% else %}
-          Paraplypalmen (107) trenger vann uten næring.
-          {% endif %}
-- alias: 'Vanne Yucca Elephantipes (110)'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.miflora11_moisture
-    below: 15
-  action:
-    - service: !secret notification1
-      data_template:
-        message: >
-          {% if states('sensor.miflora11_conductivity') | int < 350 %}
-          Yuccapalmen (110) trenger vann og mye næring.
-          {% elif states('sensor.miflora11_conductivity') | int < 500 %}
-          Yuccapalmen (110) trenger vann og muligens noe næring.
-          {% else %}
-          Yuccapalmen (110) trenger vann uten næring.
-          {% endif %}
+#- alias: 'Vanne Schefflera Arboricola (107)'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.miflora10_moisture
+#    below: 15
+#  action:
+#    - service: !secret notification1
+#      data_template:
+#        message: >
+#          {% if states('sensor.miflora10_conductivity') | int < 350 %}
+#          Paraplypalmen (107) trenger vann og mye næring.
+#          {% elif states('sensor.miflora10_conductivity') | int < 500 %}
+#          Paraplypalmen (107) trenger vann og muligens noe næring.
+#          {% else %}
+#          Paraplypalmen (107) trenger vann uten næring.
+#          {% endif %}
