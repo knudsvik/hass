@@ -14,66 +14,58 @@ include:
     - !secret car-external-power
     - air_quality.air_quality_norway
     - binary_sensor.vaskemaskin
+    - input_boolean.temp_torketrommel
+    - input_boolean.temp_vaskemaskin
     - sensor.air_quality_pm10
     - sensor.car_distance
     - sensor.electricity_price
     - sensor.kott_motion
     - sensor.laundry_motion
-    - sensor.miflora1_battery
-    - sensor.miflora1_moisture
-    - sensor.miflora1_light_intensity
-    - sensor.miflora1_conductivity
-    - sensor.miflora1_temperature
-    - sensor.miflora2_battery
-    - sensor.miflora2_moisture
-    - sensor.miflora2_light_intensity
-    - sensor.miflora2_conductivity
-    - sensor.miflora2_temperature
-    - sensor.miflora3_battery
-    - sensor.miflora3_moisture
-    - sensor.miflora3_light_intensity
-    - sensor.miflora3_conductivity
-    - sensor.miflora3_temperature
-    - sensor.miflora4_battery
-    - sensor.miflora4_moisture
-    - sensor.miflora4_light_intensity
-    - sensor.miflora4_conductivity
-    - sensor.miflora4_temperature
-    - sensor.miflora5_battery
-    - sensor.miflora5_moisture
-    - sensor.miflora5_light_intensity
-    - sensor.miflora5_conductivity
-    - sensor.miflora5_temperature
-    - sensor.miflora6_battery
-    - sensor.miflora6_moisture
-    - sensor.miflora6_light_intensity
-    - sensor.miflora6_conductivity
-    - sensor.miflora6_temperature
-    - sensor.miflora7_battery
-    - sensor.miflora7_moisture
-    - sensor.miflora7_light_intensity
-    - sensor.miflora7_conductivity
-    - sensor.miflora7_temperature
-    - sensor.miflora8_battery
-    - sensor.miflora8_moisture
-    - sensor.miflora8_light_intensity
-    - sensor.miflora8_conductivity
-    - sensor.miflora8_temperature
-    - sensor.miflora9_battery
-    - sensor.miflora9_moisture
-    - sensor.miflora9_light_intensity
-    - sensor.miflora9_conductivity
-    - sensor.miflora9_temperature
-    - sensor.miflora10_battery
-    - sensor.miflora10_moisture
-    - sensor.miflora10_light_intensity
-    - sensor.miflora10_conductivity
-    - sensor.miflora10_temperature
-    - sensor.miflora11_battery
-    - sensor.miflora11_moisture
-    - sensor.miflora11_light_intensity
-    - sensor.miflora11_conductivity
-    - sensor.miflora11_temperature
+    - sensor.mqtt_plant26_moisture
+    - sensor.mqtt_plant26_light
+    - sensor.mqtt_plant26_conductivity
+    - sensor.mqtt_plant26_temperature
+    - sensor.mqtt_plant27_moisture
+    - sensor.mqtt_plant27_light
+    - sensor.mqtt_plant27_conductivity
+    - sensor.mqtt_plant27_temperature
+    - sensor.mqtt_plant31_moisture
+    - sensor.mqtt_plant31_light
+    - sensor.mqtt_plant31_conductivity
+    - sensor.mqtt_plant31_temperature
+    - sensor.mqtt_plant48_moisture
+    - sensor.mqtt_plant48_light
+    - sensor.mqtt_plant48_conductivity
+    - sensor.mqtt_plant48_temperature
+    - sensor.mqtt_plant75_moisture
+    - sensor.mqtt_plant75_light
+    - sensor.mqtt_plant75_conductivity
+    - sensor.mqtt_plant75_temperature
+    #- sensor.mqtt_plant78_moisture
+    #- sensor.mqtt_plant78_light
+    #- sensor.mqtt_plant78_conductivity
+    #- sensor.mqtt_plant78_temperature
+    - sensor.mqtt_plant83_moisture
+    - sensor.mqtt_plant83_light
+    - sensor.mqtt_plant83_conductivity
+    - sensor.mqtt_plant83_temperature
+    - sensor.mqtt_plant105_moisture
+    - sensor.mqtt_plant105_light
+    - sensor.mqtt_plant105_conductivity
+    - sensor.mqtt_plant105_temperature
+    - sensor.mqtt_plant107_moisture
+    - sensor.mqtt_plant107_light
+    - sensor.mqtt_plant107_conductivity
+    - sensor.mqtt_plant107_temperature
+    - sensor.mqtt_plant110_moisture
+    - sensor.mqtt_plant110_light
+    - sensor.mqtt_plant110_conductivity
+    - sensor.mqtt_plant110_temperature
+    - sensor.mqtt_plant119_moisture
+    - sensor.mqtt_plant119_light
+    - sensor.mqtt_plant119_conductivity
+    - sensor.mqtt_plant119_temperature
+    - sensor.multisensor_relative_humidity
     - sensor.speedtest_download
     - sensor.speedtest_ping
     - sensor.speedtest_upload
@@ -82,6 +74,7 @@ include:
     - sensor.tibber_spenning_fase1
     - sensor.tibber_spenning_fase2
     - sensor.tibber_spenning_fase3
+    - sensor.torketrommel_effekt
     - sensor.vaskemaskin_effekt
     - sensor.wc_temperature
     - sensor.yr_temperature
