@@ -1,10 +1,10 @@
 26:
   sensors:
-    moisture: sensor.miflora3_moisture
-    battery: sensor.miflora3_battery
-    temperature: sensor.miflora3_temperature
-    conductivity: sensor.miflora3_conductivity
-    brightness: sensor.miflora3_light_intensity
+    moisture: sensor.mqtt_plant26_moisture
+    battery: sensor.mqtt_plant26_battery
+    temperature: sensor.mqtt_plant26_temperature
+    conductivity: sensor.mqtt_plant26_conductivity
+    brightness: sensor.mqtt_plant26_light
   min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
@@ -15,11 +15,11 @@
   max_temperature: 32
 27:
   sensors:
-    moisture: sensor.miflora1_moisture
-    battery: sensor.miflora1_battery
-    temperature: sensor.miflora1_temperature
-    conductivity: sensor.miflora1_conductivity
-    brightness: sensor.miflora1_light_intensity
+    moisture: sensor.mqtt_plant27_moisture
+    battery: sensor.mqtt_plant27_battery
+    temperature: sensor.mqtt_plant27_temperature
+    conductivity: sensor.mqtt_plant27_conductivity
+    brightness: sensor.mqtt_plant27_light
   min_moisture: 20
   max_moisture: 60
   min_conductivity: 350
@@ -30,11 +30,11 @@
   max_temperature: 32
 31:
   sensors:
-    moisture: sensor.miflora2_moisture
-    battery: sensor.miflora2_battery
-    temperature: sensor.miflora2_temperature
-    conductivity: sensor.miflora2_conductivity
-    brightness: sensor.miflora2_light_intensity
+    moisture: sensor.mqtt_plant31_moisture
+    battery: sensor.mqtt_plant31_battery
+    temperature: sensor.mqtt_plant31_temperature
+    conductivity: sensor.mqtt_plant31_conductivity
+    brightness: sensor.mqtt_plant31_light
   min_moisture: 20
   max_moisture: 60
   min_conductivity: 350
@@ -43,43 +43,28 @@
   max_brightness: 35000
   min_temperature: 8
   max_temperature: 32
-#29:
-#  sensors:
-#    moisture: sensor.miflora5_moisture
-#    battery: sensor.miflora5_battery
-#    temperature: sensor.miflora5_temperature
-#    conductivity: sensor.miflora5_conductivity
-#    brightness: sensor.miflora5_light_intensity
-#  min_moisture: 7
-#  max_moisture: 50
-#  min_conductivity: 50
-#  max_conductivity: 1000
-#  min_brightness: 1700
-#  max_brightness: 75000
-#  min_temperature: 5
-#  max_temperature: 35
-105:
+119:
   sensors:
-    moisture: sensor.miflora4_moisture
-    battery: sensor.miflora4_battery
-    temperature: sensor.miflora4_temperature
-    conductivity: sensor.miflora4_conductivity
-    brightness: sensor.miflora4_light_intensity
+    moisture: sensor.mqtt_plant119_moisture
+    battery: sensor.mqtt_plant119_battery
+    temperature: sensor.mqtt_plant119_temperature
+    conductivity: sensor.mqtt_plant119_conductivity
+    brightness: sensor.mqtt_plant119_light
   min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
   max_conductivity: 2000
-  min_brightness: 2000
-  max_brightness: 35000
+  min_brightness: 600
+  max_brightness: 20000
   min_temperature: 10
-  max_temperature: 35
+  max_temperature: 32
 48:
   sensors:
-    moisture: sensor.miflora6_moisture
-    battery: sensor.miflora6_battery
-    temperature: sensor.miflora6_temperature
-    conductivity: sensor.miflora6_conductivity
-    brightness: sensor.miflora6_light_intensity
+    moisture: sensor.mqtt_plant48_moisture
+    battery: sensor.mqtt_plant48_battery
+    temperature: sensor.mqtt_plant48_temperature
+    conductivity: sensor.mqtt_plant48_conductivity
+    brightness: sensor.mqtt_plant48_light
   min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
@@ -90,11 +75,11 @@
   max_temperature: 35
 75:
   sensors:
-    moisture: sensor.miflora7_moisture
-    battery: sensor.miflora7_battery
-    temperature: sensor.miflora7_temperature
-    conductivity: sensor.miflora7_conductivity
-    brightness: sensor.miflora7_light_intensity
+    moisture: sensor.mqtt_plant75_moisture
+    battery: sensor.mqtt_plant75_battery
+    temperature: sensor.mqtt_plant75_temperature
+    conductivity: sensor.mqtt_plant75_conductivity
+    brightness: sensor.mqtt_plant75_light
   min_moisture: 20
   max_moisture: 65
   min_conductivity: 150
@@ -103,13 +88,43 @@
   max_brightness: 95000
   min_temperature: 10
   max_temperature: 35
-72:
+#72:
+#  sensors:
+#    moisture: sensor.mqtt_plant72_moisture
+#    battery: sensor.mqtt_plant72_battery
+#    temperature: sensor.mqtt_plant72_temperature
+#    conductivity: sensor.mqtt_plant72_conductivity
+#    brightness: sensor.mqtt_plant72_light
+#  min_moisture: 20
+#  max_moisture: 65
+#  min_conductivity: 150
+#  max_conductivity: 2000
+#  min_brightness: 3000
+#  max_brightness: 95000
+#  min_temperature: 10
+#  max_temperature: 35
+#78:
+#  sensors:
+#    moisture: sensor.mqtt_plant78_moisture
+#    battery: sensor.mqtt_plant78_battery
+#    temperature: sensor.mqtt_plant78_temperature
+#    conductivity: sensor.mqtt_plant78_conductivity
+#    brightness: sensor.mqtt_plant78_light
+#  min_moisture: 22
+#  max_moisture: 70
+#  min_conductivity: 200
+#  max_conductivity: 2500
+#  min_brightness: 3500
+#  max_brightness: 120000
+#  min_temperature: 10
+#  max_temperature: 35
+83:
   sensors:
-    moisture: sensor.miflora8_moisture
-    battery: sensor.miflora8_battery
-    temperature: sensor.miflora8_temperature
-    conductivity: sensor.miflora8_conductivity
-    brightness: sensor.miflora8_light_intensity
+    moisture: sensor.mqtt_plant83_moisture
+    battery: sensor.mqtt_plant83_battery
+    temperature: sensor.mqtt_plant83_temperature
+    conductivity: sensor.mqtt_plant83_conductivity
+    brightness: sensor.mqtt_plant83_light
   min_moisture: 20
   max_moisture: 65
   min_conductivity: 150
@@ -118,28 +133,28 @@
   max_brightness: 95000
   min_temperature: 10
   max_temperature: 35
-78:
+105:
   sensors:
-    moisture: sensor.miflora9_moisture
-    battery: sensor.miflora9_battery
-    temperature: sensor.miflora9_temperature
-    conductivity: sensor.miflora9_conductivity
-    brightness: sensor.miflora9_light_intensity
-  min_moisture: 22
-  max_moisture: 70
-  min_conductivity: 200
-  max_conductivity: 2500
-  min_brightness: 3500
-  max_brightness: 120000
+    moisture: sensor.mqtt_plant105_moisture
+    battery: sensor.mqtt_plant105_battery
+    temperature: sensor.mqtt_plant105_temperature
+    conductivity: sensor.mqtt_plant105_conductivity
+    brightness: sensor.mqtt_plant105_light
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 2000
+  max_brightness: 35000
   min_temperature: 10
   max_temperature: 35
 107:
   sensors:
-    moisture: sensor.miflora10_moisture
-    battery: sensor.miflora10_battery
-    temperature: sensor.miflora10_temperature
-    conductivity: sensor.miflora10_conductivity
-    brightness: sensor.miflora10_light_intensity
+    moisture: sensor.mqtt_plant107_moisture
+    battery: sensor.mqtt_plant107_battery
+    temperature: sensor.mqtt_plant107_temperature
+    conductivity: sensor.mqtt_plant107_conductivity
+    brightness: sensor.mqtt_plant107_light
   min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
@@ -150,11 +165,11 @@
   max_temperature: 32
 110:
   sensors:
-    moisture: sensor.miflora11_moisture
-    battery: sensor.miflora11_battery
-    temperature: sensor.miflora11_temperature
-    conductivity: sensor.miflora11_conductivity
-    brightness: sensor.miflora11_light_intensity
+    moisture: sensor.mqtt_plant110_moisture
+    battery: sensor.mqtt_plant110_battery
+    temperature: sensor.mqtt_plant110_temperature
+    conductivity: sensor.mqtt_plant110_conductivity
+    brightness: sensor.mqtt_plant110_light
   min_moisture: 15
   max_moisture: 60
   min_conductivity: 350
