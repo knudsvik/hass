@@ -80,6 +80,11 @@
       unit_of_measurement: 'W'
       icon_template: mdi:washing-machine
       value_template: "{{ state_attr('switch.vaskemaskin', 'current_power_w') }}"
+    torketrommel_effekt:
+      friendly_name: "Tørketrommel effekt"
+      unit_of_measurement: 'W'
+      icon_template: mdi:tumble-dryer
+      value_template: "{{ state_attr('switch.torketrommel', 'current_power_w') }}"
 
     tibber_spenning_fase1:
       friendly_name: "Spenning fase 1"
@@ -96,48 +101,3 @@
       unit_of_measurement: 'V'
       icon_template: mdi:flash
       value_template: "{{ state_attr('sensor.tibber', 'voltagePhase3') }}"
-
-
-###############################
-###           MISC          ###
-###############################
-
-- platform: pi_hole
-  host: !secret rpi_url
-
-###############################
-###         MI FLORA        ###
-###############################
-- platform: miflora
-  mac: !secret miflora1_mac
-  name: Miflora1
-- platform: miflora
-  mac: !secret miflora2_mac
-  name: Miflora2
-- platform: miflora
-  mac: !secret miflora3_mac
-  name: Miflora3
-- platform: miflora
-  mac: !secret miflora4_mac
-  name: Miflora4
-#- platform: miflora
-#  mac: !secret miflora5_mac
-#  name: Miflora5
-- platform: miflora
-  mac: !secret miflora6_mac
-  name: Miflora6
-- platform: miflora
-  mac: !secret miflora7_mac
-  name: Miflora7
-- platform: miflora
-  mac: !secret miflora8_mac
-  name: Miflora8
-- platform: miflora
-  mac: !secret miflora9_mac
-  name: Miflora9
-- platform: miflora
-  mac: !secret miflora10_mac
-  name: Miflora10
-- platform: miflora
-  mac: !secret miflora11_mac
-  name: Miflora11
